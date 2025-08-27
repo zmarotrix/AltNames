@@ -28,10 +28,6 @@ function AltNamesD()
     DEFAULT_CHAT_FRAME:AddMessage("|cffffd700------------------------------------------");
 end
 
----
--- A string.match() implementation for Lua 5.0 that handles captures.
--- This is necessary because string.match was officially introduced in Lua 5.1.
----
 function getChannelName(inputString)
   local pattern = "%d+%.%s*(.*)"
   local _, _, capturedText = string.find(inputString, pattern)
@@ -129,7 +125,7 @@ function AltNames:HookChatSystem()
         if event == "CHAT_MSG_GUILD" then
             AltNames:ScanGuildRoster();
         end
-        
+
         if (eventsToHook[event] and arg1 and arg2) or (arg4 and getChannelName(arg4) and (channelsToMatch[getChannelName(arg4)] and arg1 and arg2)) then
             local mainName = AltNamesDB[string.lower(arg2)];
             if (mainName) then
@@ -148,8 +144,7 @@ function AltNames:ScanGuildRoster()
             local lowerName = string.lower(name);
             if (not AltNamesDB[lowerName]) then
                 if (pnote and pnote ~= "") then
-                    -- Match the last "word" (non-space characters) before "alt" or "Alt" 
-                    local mainNameCandidate = string.match(pnote, "(%S+)%s*[aA]lt");
+                    local _, _, mainNameCandidate = string.find(pnote, "(%S+)%s*[aA]lt");
                     if (mainNameCandidate) then
                         -- Clean up the name, for example, removing a trailing "'s"
                         local mainName = string.gsub(mainNameCandidate, "'s$", "");
