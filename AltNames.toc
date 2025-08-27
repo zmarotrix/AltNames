@@ -1,0 +1,5 @@
+## Interface: 1120
+## Title: AltNames
+## Notes: Adds main character names to chat and allows setting them via right-click.
+## SavedVariables: AltNamesDB
+AltNames.lua
