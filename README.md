@@ -54,8 +54,6 @@ Once an association is made, whenever that alt speaks, their message will be pre
 3.  In the pop-up box, type the name of their main character.
 4.  Click **"Accept"**.
 
-![Set Main Name Menu](https://i.imgur.com/your-image-url-here.png) <!-- It's recommended to add a screenshot -->
-
 ### Removing or Changing a Main
 
 1.  Follow the steps for setting a main manually.
